@@ -1,6 +1,7 @@
 'use client';
 
 import { useEffect, useRef, useState } from 'react';
+import Image from 'next/image';
 import { 
   Stethoscope, 
   Heart, 
@@ -150,9 +151,11 @@ const Services = () => {
       {/* Cute Squirrel - Strategically positioned */}
       <div className="absolute top-20 right-10 lg:right-20 z-10 hidden lg:block">
         <div className="relative group">
-          <img 
+          <Image 
             src="https://res.cloudinary.com/dylpck2et/image/upload/v1759072445/fun-3d-cartoon-squirrel-with-ice-cream_uz12jx.png"
             alt="Cute Squirrel Mascot"
+            width={160}
+            height={160}
             className="w-32 h-32 xl:w-40 xl:h-40 animate-float hover:scale-110 transition-transform duration-300 filter drop-shadow-2xl"
           />
           {/* Speech bubble from squirrel */}
@@ -244,7 +247,7 @@ const Services = () => {
                 Votre animal mérite les meilleurs soins
               </h3>
               <p className="text-xl md:text-2xl mb-8 opacity-90">
-                Prenez rendez-vous dès aujourd'hui avec Dr. Chakroune
+                Prenez rendez-vous dès aujourd&apos;hui avec Dr. Chakroune
               </p>
               
               <div className="flex flex-col sm:flex-row gap-4 justify-center">

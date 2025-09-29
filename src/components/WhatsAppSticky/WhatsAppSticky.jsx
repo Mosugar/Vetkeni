@@ -1,6 +1,7 @@
 'use client';
 
 import { useState, useEffect } from 'react';
+import Image from 'next/image';
 import { MessageCircle, X, Phone, Heart, Clock } from 'lucide-react';
 
 const WhatsAppSticky = () => {
@@ -25,8 +26,8 @@ const WhatsAppSticky = () => {
   const openWhatsApp = (isEmergency = false) => {
     const phoneNumber = isEmergency ? '212661171954' : '212537378587';
     const message = isEmergency 
-      ? '🚨 URGENCE 🚨 - Bonjour Dr. Chakroune, j\'ai une urgence vétérinaire!'
-      : 'Bonjour Dr. Chakroune, j\'aimerais prendre rendez-vous pour mon animal de compagnie.';
+      ? '🚨 URGENCE 🚨 - Bonjour Dr. Chakroune, j&apos;ai une urgence vétérinaire!'
+      : 'Bonjour Dr. Chakroune, j&apos;aimerais prendre rendez-vous pour mon animal de compagnie.';
     
     const whatsappURL = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
     window.open(whatsappURL, '_blank');
@@ -56,22 +57,24 @@ const WhatsAppSticky = () => {
             <div className="mb-4">
               <div className="flex items-center space-x-3 mb-2">
                 <div className="w-12 h-12 rounded-full overflow-hidden">
-                  <img 
+                  <Image 
                     src="https://res.cloudinary.com/dylpck2et/image/upload/v1759074219/412692551_323726270580332_8767776756854516255_n_ef7zws.jpg" 
                     alt="Dr. Chakroune" 
+                    width={48}
+                    height={48}
                     className="w-full h-full object-cover"
                   />
                 </div>
                 <div>
                   <h4 className="font-semibold text-gray-800">Dr. Chakroune</h4>
                   <p className="text-sm text-green-500 flex items-center">
-                    <div className="w-2 h-2 bg-green-500 rounded-full mr-2 animate-pulse"></div>
+                    <span className="w-2 h-2 bg-green-500 rounded-full mr-2 animate-pulse"></span>
                     En ligne
                   </p>
                 </div>
               </div>
               <p className="text-gray-600 text-sm">
-                Comment puis-je vous aider aujourd'hui ?
+                Comment puis-je vous aider aujourd&apos;hui ?
               </p>
             </div>
 
@@ -102,7 +105,7 @@ const WhatsAppSticky = () => {
                 </div>
                 <div className="text-left">
                   <div className="font-semibold">Urgence 24/7</div>
-                  <div className="text-sm opacity-90">Service d'urgence</div>
+                  <div className="text-sm opacity-90">Service d&apos;urgence</div>
                 </div>
               </button>
 
@@ -140,7 +143,7 @@ const WhatsAppSticky = () => {
         {showTooltip && !isExpanded && (
           <div className="absolute bottom-20 right-0 bg-gray-800 text-white p-3 rounded-lg shadow-lg max-w-xs animate-fade-in">
             <p className="text-sm">
-              Besoin d'aide ? Contactez-nous via WhatsApp ! 💬
+              Besoin d&apos;aide ? Contactez-nous via WhatsApp ! 💬
             </p>
             <div className="absolute bottom-0 right-6 transform translate-y-full">
               <div className="w-0 h-0 border-l-4 border-r-4 border-t-8 border-l-transparent border-r-transparent border-t-gray-800"></div>

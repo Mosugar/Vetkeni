@@ -1,6 +1,7 @@
 'use client';
 
 import { useEffect, useRef, useState } from 'react';
+import Image from 'next/image';
 import { Star, Quote, ChevronLeft, ChevronRight, Heart, User } from 'lucide-react';
 
 const Testimonials = () => {
@@ -80,18 +81,22 @@ const Testimonials = () => {
 
   // Auto-slide
   useEffect(() => {
-    const interval = setInterval(nextSlide, 5000);
+    const interval = setInterval(() => {
+      setCurrentSlide((prev) => (prev + 1) % testimonials.length);
+    }, 5000);
     return () => clearInterval(interval);
-  }, []);
+  }, [testimonials.length]);
 
   return (
     <section id="testimonials" ref={sectionRef} className="py-20 bg-gradient-to-br from-blue-50 via-white to-yellow-50 relative overflow-hidden">
       
       {/* Floating cute animal in corner */}
       <div className="absolute bottom-10 left-10 hidden lg:block">
-        <img 
+        <Image 
           src="https://res.cloudinary.com/dylpck2et/image/upload/v1759072383/8223549_irqan5.png"
           alt="Cute Animal Mascot"
+          width={144}
+          height={144}
           className="w-28 h-28 xl:w-36 xl:h-36 animate-float animation-delay-700 hover:animate-pulse-heart transition-all duration-300 filter drop-shadow-2xl"
         />
       </div>
@@ -141,7 +146,7 @@ const Testimonials = () => {
                 className="flex transition-transform duration-500 ease-in-out"
                 style={{ transform: `translateX(-${currentSlide * 100}%)` }}
               >
-                {testimonials.map((testimonial, index) => (
+                {testimonials.map((testimonial) => (
                   <div key={testimonial.id} className="min-w-full p-8 md:p-12">
                     <div className="max-w-4xl mx-auto text-center">
                       
@@ -161,7 +166,7 @@ const Testimonials = () => {
 
                       {/* Testimonial Text */}
                       <blockquote className="text-xl md:text-2xl text-gray-700 font-medium leading-relaxed mb-8 italic">
-                        "{testimonial.text}"
+                        &quot;{testimonial.text}&quot;
                       </blockquote>
 
                       {/* Client Info */}
@@ -252,7 +257,7 @@ const Testimonials = () => {
                 Rejoignez nos clients satisfaits
               </h3>
               <p className="text-xl md:text-2xl mb-8 opacity-90">
-                Votre animal mérite les meilleurs soins. Prenez rendez-vous aujourd'hui!
+                Votre animal mérite les meilleurs soins. Prenez rendez-vous aujourd&apos;hui!
               </p>
               
               <div className="flex flex-col sm:flex-row gap-4 justify-center">

@@ -1,6 +1,7 @@
 'use client';
 
 import { useState, useEffect } from 'react';
+import Image from 'next/image';
 import { Phone, Menu, X, Heart, MapPin, Clock, Stethoscope } from 'lucide-react';
 
 const Header = () => {
@@ -89,9 +90,11 @@ const Header = () => {
             >
               <div className="relative">
                 <div className="w-14 h-14 rounded-2xl overflow-hidden shadow-md group-hover:shadow-lg transition-all duration-300 border border-gray-100">
-                  <img 
+                  <Image 
                     src="https://res.cloudinary.com/dylpck2et/image/upload/v1759074219/412692551_323726270580332_8767776756854516255_n_ef7zws.jpg" 
                     alt="VetKeni - Clinique Vétérinaire" 
+                    width={56}
+                    height={56}
                     className="w-full h-full object-cover"
                   />
                 </div>

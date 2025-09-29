@@ -1,6 +1,7 @@
 'use client';
 
 import { useEffect, useRef, useState } from 'react';
+import Image from 'next/image';
 import { Instagram, ExternalLink, Heart, MessageCircle, Eye } from 'lucide-react';
 
 const InstagramShowcase = () => {
@@ -77,9 +78,11 @@ const InstagramShowcase = () => {
       
       {/* Cute Monkey floating */}
       <div className="absolute top-20 right-20 hidden xl:block">
-        <img 
+        <Image 
           src="https://res.cloudinary.com/dylpck2et/image/upload/v1759072874/11111689_lfxfpm.png"
           alt="Cute Monkey Mascot"
+          width={128}
+          height={128}
           className="w-32 h-32 animate-float animation-delay-500 hover:animate-wiggle transition-all duration-300 filter drop-shadow-2xl"
         />
       </div>
@@ -124,9 +127,11 @@ const InstagramShowcase = () => {
             >
               {/* Image */}
               <div className="relative overflow-hidden">
-                <img 
+                <Image 
                   src={post.image}
                   alt={`Instagram post ${post.id}`}
+                  width={400}
+                  height={256}
                   className="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-500"
                 />
                 

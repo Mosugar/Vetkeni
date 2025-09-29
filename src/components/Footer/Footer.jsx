@@ -1,5 +1,6 @@
 'use client';
 
+import Image from 'next/image';
 import { 
   MapPin, 
   Phone, 
@@ -70,9 +71,11 @@ const Footer = () => {
             {/* Squirrel */}
             <div className="text-center group">
               <div className="relative bg-gradient-to-br from-orange-400 to-orange-600 rounded-3xl p-6 mb-4 shadow-2xl hover:shadow-3xl transition-all duration-300 hover:scale-105">
-                <img 
+                <Image 
                   src="https://res.cloudinary.com/dylpck2et/image/upload/v1759072445/fun-3d-cartoon-squirrel-with-ice-cream_uz12jx.png"
                   alt="Écureuil Mascotte"
+                  width={80}
+                  height={80}
                   className="w-20 h-20 mx-auto filter drop-shadow-lg"
                 />
                 <div className="absolute -top-2 -right-2 bg-yellow-400 text-orange-800 rounded-full w-8 h-8 flex items-center justify-center text-sm font-bold">
@@ -86,9 +89,11 @@ const Footer = () => {
             {/* Rabbit */}
             <div className="text-center group">
               <div className="relative bg-gradient-to-br from-pink-400 to-pink-600 rounded-3xl p-6 mb-4 shadow-2xl hover:shadow-3xl transition-all duration-300 hover:scale-105">
-                <img 
+                <Image 
                   src="https://res.cloudinary.com/dylpck2et/image/upload/v1759072428/8200069_dxjygl.png"
                   alt="Lapin Mascotte"
+                  width={80}
+                  height={80}
                   className="w-20 h-20 mx-auto filter drop-shadow-lg"
                 />
                 <div className="absolute -top-2 -right-2 bg-green-400 text-pink-800 rounded-full w-8 h-8 flex items-center justify-center text-sm font-bold">
@@ -102,9 +107,11 @@ const Footer = () => {
             {/* Tiger */}
             <div className="text-center group">
               <div className="relative bg-gradient-to-br from-yellow-400 to-orange-600 rounded-3xl p-6 mb-4 shadow-2xl hover:shadow-3xl transition-all duration-300 hover:scale-105">
-                <img 
+                <Image 
                   src="https://res.cloudinary.com/dylpck2et/image/upload/v1759072409/fun-3d-cartoon-tiger-dancing_pdpcoi.png"
                   alt="Tigre Mascotte"
+                  width={80}
+                  height={80}
                   className="w-20 h-20 mx-auto filter drop-shadow-lg"
                 />
                 <div className="absolute -top-2 -right-2 bg-purple-400 text-orange-800 rounded-full w-8 h-8 flex items-center justify-center text-sm font-bold">
@@ -118,9 +125,11 @@ const Footer = () => {
             {/* Cute Animal 1 */}
             <div className="text-center group">
               <div className="relative bg-gradient-to-br from-blue-400 to-blue-600 rounded-3xl p-6 mb-4 shadow-2xl hover:shadow-3xl transition-all duration-300 hover:scale-105">
-                <img 
+                <Image 
                   src="https://res.cloudinary.com/dylpck2et/image/upload/v1759072383/8223549_irqan5.png"
                   alt="Animal Mascotte"
+                  width={80}
+                  height={80}
                   className="w-20 h-20 mx-auto filter drop-shadow-lg"
                 />
                 <div className="absolute -top-2 -right-2 bg-red-400 text-blue-800 rounded-full w-8 h-8 flex items-center justify-center text-sm font-bold">
@@ -134,9 +143,11 @@ const Footer = () => {
             {/* Monkey */}
             <div className="text-center group">
               <div className="relative bg-gradient-to-br from-green-400 to-green-600 rounded-3xl p-6 mb-4 shadow-2xl hover:shadow-3xl transition-all duration-300 hover:scale-105">
-                <img 
+                <Image 
                   src="https://res.cloudinary.com/dylpck2et/image/upload/v1759072874/11111689_lfxfpm.png"
                   alt="Singe Mascotte"
+                  width={80}
+                  height={80}
                   className="w-20 h-20 mx-auto filter drop-shadow-lg"
                 />
                 <div className="absolute -top-2 -right-2 bg-yellow-400 text-green-800 rounded-full w-8 h-8 flex items-center justify-center text-sm font-bold">
@@ -144,7 +155,7 @@ const Footer = () => {
                 </div>
               </div>
               <h4 className="font-semibold text-green-300">Singe Espiègle</h4>
-              <p className="text-xs text-gray-300">Roi de l'amusement</p>
+              <p className="text-xs text-gray-300">Roi de l&apos;amusement</p>
             </div>
           </div>
         </div>
@@ -173,9 +184,11 @@ const Footer = () => {
             <div className="text-center lg:text-left">
               <div className="flex items-center justify-center lg:justify-start space-x-4 mb-4">
                 <div className="w-16 h-16 rounded-2xl overflow-hidden shadow-xl">
-                  <img 
+                  <Image 
                     src="https://res.cloudinary.com/dylpck2et/image/upload/v1759074219/412692551_323726270580332_8767776756854516255_n_ef7zws.jpg" 
                     alt="VetKeni Logo" 
+                    width={64}
+                    height={64}
                     className="w-full h-full object-cover"
                   />
                 </div>
@@ -189,7 +202,7 @@ const Footer = () => {
               </div>
               
               <p className="text-blue-100 leading-relaxed mb-4">
-                Des soins vétérinaires d'excellence à Kénitra depuis plus de 10 ans
+                Des soins vétérinaires d&apos;excellence à Kénitra depuis plus de 10 ans
               </p>
 
               <div className="flex justify-center lg:justify-start">
