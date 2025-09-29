@@ -27,49 +27,28 @@ const InstagramShowcase = () => {
     return () => observer.disconnect();
   }, []);
 
-  // Mock Instagram posts - replace with real data from Instagram API if available
+  // Real Instagram posts from the clinic
   const instagramPosts = [
     {
       id: 1,
-      image: "https://res.cloudinary.com/dylpck2et/image/upload/v1759074219/412692551_323726270580332_8767776756854516255_n_ef7zws.jpg",
-      caption: "Consultation avec nos amis à quatre pattes 🐕❤️",
-      likes: 156,
-      comments: 23
+      image: "https://res.cloudinary.com/dylpck2et/image/upload/v1759158040/Le_saviez-vous_Pourquoi_et_quand_vacciner_catsofinstagram_dogsofinstagram_kenitra_morocco_ylhzbl.jpg",
+      caption: "Le saviez-vous ? Pourquoi et quand vacciner ? 💉🐕🐱",
+      likes: 245,
+      comments: 38
     },
     {
       id: 2,
-      image: "https://res.cloudinary.com/dylpck2et/image/upload/v1759074411/vet-clinic-concept-happy-male-doctor-veterinarian-holding-cute-black-pug-dog-smiling-camera-white-background_untoey.jpg",
-      caption: "Dr. Chakroune avec un de nos patients les plus mignons 🐶",
-      likes: 234,
-      comments: 45
+      image: "https://res.cloudinary.com/dylpck2et/image/upload/v1759157893/Quoi_de_plus_beau_que_de_voir_les_yeux_d_un_enfant_briller_a%CC%80_la_rencontre_d_une_boule_de_poils_ptd5tg.jpg",
+      caption: "Quoi de plus beau que de voir les yeux d'un enfant briller à la rencontre d'une boule de poils 💕✨",
+      likes: 312,
+      comments: 52
     },
     {
       id: 3,
-      image: "https://res.cloudinary.com/dylpck2et/image/upload/v1759072445/fun-3d-cartoon-squirrel-with-ice-cream_uz12jx.png",
-      caption: "Même nos mascottes aiment venir nous voir! 🐿️🍦",
-      likes: 89,
-      comments: 12
-    },
-    {
-      id: 4,
-      image: "https://res.cloudinary.com/dylpck2et/image/upload/v1759072428/8200069_dxjygl.png",
-      caption: "Nos amis les lapins sont toujours les bienvenus 🐰✨",
-      likes: 167,
-      comments: 28
-    },
-    {
-      id: 5,
-      image: "https://res.cloudinary.com/dylpck2et/image/upload/v1759072409/fun-3d-cartoon-tiger-dancing_pdpcoi.png",
-      caption: "Quand nos patients sont heureux, nous le sommes aussi! 🐅💃",
-      likes: 203,
-      comments: 34
-    },
-    {
-      id: 6,
-      image: "https://res.cloudinary.com/dylpck2et/image/upload/v1759072383/8223549_irqan5.png",
-      caption: "Consultation vétérinaire avec le sourire 😊🩺",
-      likes: 145,
-      comments: 19
+      image: "https://res.cloudinary.com/dylpck2et/image/upload/v1759157793/L_e%CC%81quipe_de_la_clinique_ve%CC%81te%CC%81rinaire_Ke%CC%81nitra_vous_souhaite_une_merveilleuse_anne%CC%81e_2025_remplie_d_l4kswa.jpg",
+      caption: "L'équipe de la clinique vétérinaire Kénitra vous souhaite une merveilleuse année 2025 🎉🐾",
+      likes: 423,
+      comments: 67
     }
   ];
 
@@ -116,8 +95,8 @@ const InstagramShowcase = () => {
           </a>
         </div>
 
-        {/* Instagram Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-16">
+        {/* Instagram Grid - 3 Posts Only */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16 max-w-6xl mx-auto">
           {instagramPosts.map((post, index) => (
             <div
               key={post.id}
@@ -131,8 +110,8 @@ const InstagramShowcase = () => {
                   src={post.image}
                   alt={`Instagram post ${post.id}`}
                   width={400}
-                  height={256}
-                  className="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-500"
+                  height={400}
+                  className="w-full h-80 object-cover group-hover:scale-110 transition-transform duration-500"
                 />
                 
                 {/* Hover overlay */}

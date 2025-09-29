@@ -58,7 +58,7 @@ const Contact = () => {
     e.preventDefault();
     
     // Create WhatsApp message
-    const message = `
+    const whatsappMessage = `
 🏥 *Nouveau message depuis VetKeni*
 
 👤 *Nom:* ${formData.name}
@@ -72,10 +72,43 @@ ${formData.isEmergency ? '🚨 *URGENCE* 🚨' : '📅 *Rendez-vous normal*'}
 ${formData.message}
     `.trim();
 
-    const phoneNumber = formData.isEmergency ? '212661171954' : '212537378587';
-    const whatsappURL = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
+    // Create email subject and body
+    const emailSubject = formData.isEmergency 
+      ? `🚨 URGENCE - Rendez-vous pour ${formData.petName}`
+      : `Demande de rendez-vous pour ${formData.petName}`;
     
+    const emailBody = `
+Bonjour Dr. Chakroune,
+
+Je souhaite prendre rendez-vous pour mon animal.
+
+INFORMATIONS DU PROPRIÉTAIRE:
+- Nom: ${formData.name}
+- Téléphone: ${formData.phone}
+- Email: ${formData.email}
+
+INFORMATIONS DE L'ANIMAL:
+- Nom: ${formData.petName}
+- Type: ${formData.petType}
+
+TYPE DE CONSULTATION:
+${formData.isEmergency ? '🚨 URGENCE - Besoin d\'une consultation immédiate' : 'Rendez-vous normal'}
+
+MESSAGE:
+${formData.message}
+
+Cordialement,
+${formData.name}
+    `.trim();
+
+    // Open WhatsApp
+    const phoneNumber = formData.isEmergency ? '212661171954' : '212537378587';
+    const whatsappURL = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(whatsappMessage)}`;
     window.open(whatsappURL, '_blank');
+
+    // Open email client
+    const mailtoURL = `mailto:s.guessous.vet@gmail.com?subject=${encodeURIComponent(emailSubject)}&body=${encodeURIComponent(emailBody)}`;
+    window.location.href = mailtoURL;
   };
 
   const contactInfo = [
@@ -96,19 +129,19 @@ ${formData.message}
       href: "tel:0661171954"
     },
     {
-      icon: <MapPin className="w-6 h-6" />,
-      title: "Adresse",
-      value: "Kénitra",
-      description: "Clinique Vétérinaire Dr. Chakroune",
-      color: "from-green-400 to-green-600",
-      href: "#map"
+      icon: <Mail className="w-6 h-6" />,
+      title: "Email",
+      value: "s.guessous.vet@gmail.com",
+      description: "Nous vous répondons rapidement",
+      color: "from-purple-400 to-purple-600",
+      href: "mailto:s.guessous.vet@gmail.com"
     },
     {
       icon: <MessageCircle className="w-6 h-6" />,
       title: "WhatsApp",
       value: "Message rapide",
       description: "Réponse garantie sous 30min",
-      color: "from-purple-400 to-purple-600",
+      color: "from-green-400 to-green-600",
       href: "https://wa.me/212661171954"
     }
   ];
@@ -168,7 +201,7 @@ ${formData.message}
                 {info.title}
               </h3>
               
-              <div className="text-[#1cccfa] font-semibold text-lg mb-2">
+              <div className="text-[#1cccfa] font-semibold text-sm mb-2 break-words">
                 {info.value}
               </div>
               
@@ -191,7 +224,7 @@ ${formData.message}
                   Prendre rendez-vous
                 </h3>
                 <p className="text-gray-600">
-                  Remplissez ce formulaire et nous vous contacterons rapidement
+                  Remplissez ce formulaire et nous vous contacterons rapidement par WhatsApp et Email
                 </p>
               </div>
 
@@ -209,7 +242,7 @@ ${formData.message}
                     />
                     <div className="flex items-center text-red-700">
                       <AlertCircle className="w-5 h-5 mr-2" />
-                      <span className="font-semibold">C'est une urgence</span>
+                      <span className="font-semibold">C&apos;est une urgence</span>
                     </div>
                   </label>
                 </div>
@@ -249,13 +282,14 @@ ${formData.message}
                 {/* Email */}
                 <div>
                   <label className="block text-gray-700 font-medium mb-2">
-                    Email (optionnel)
+                    Email *
                   </label>
                   <input
                     type="email"
                     name="email"
                     value={formData.email}
                     onChange={handleInputChange}
+                    required
                     className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-[#1cccfa] focus:border-transparent transition-all duration-200"
                     placeholder="votre@email.com"
                   />
@@ -265,7 +299,7 @@ ${formData.message}
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <div>
                     <label className="block text-gray-700 font-medium mb-2">
-                      Nom de l'animal *
+                      Nom de l&apos;animal *
                     </label>
                     <input
                       type="text"
@@ -279,7 +313,7 @@ ${formData.message}
                   </div>
                   <div>
                     <label className="block text-gray-700 font-medium mb-2">
-                      Type d'animal *
+                      Type d&apos;animal *
                     </label>
                     <select
                       name="petType"
@@ -323,9 +357,13 @@ ${formData.message}
                       : 'bg-gradient-to-r from-[#1cccfa] to-blue-500 hover:from-blue-500 hover:to-[#1cccfa] text-white'
                   }`}
                 >
-                  <MessageCircle className="w-5 h-5 mr-3" />
-                  {formData.isEmergency ? 'Contacter en urgence' : 'Envoyer via WhatsApp'}
+                  <Mail className="w-5 h-5 mr-3" />
+                  {formData.isEmergency ? 'Contacter en urgence' : 'Envoyer la demande'}
                 </button>
+
+                <p className="text-sm text-gray-500 text-center">
+                  Votre demande sera envoyée par WhatsApp et Email
+                </p>
               </form>
             </div>
           </div>
@@ -337,7 +375,7 @@ ${formData.message}
             <div className="bg-white rounded-3xl p-8 shadow-2xl border border-gray-100">
               <h3 className="text-2xl font-bold text-gray-800 mb-6 flex items-center">
                 <Clock className="w-6 h-6 mr-3 text-[#1cccfa]" />
-                Horaires d'ouverture
+                Horaires d&apos;ouverture
               </h3>
               
               <div className="space-y-4">
@@ -393,4 +431,4 @@ ${formData.message}
   );
 };
 
-export default Contact; 
+export default Contact;

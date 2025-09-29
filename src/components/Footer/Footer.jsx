@@ -10,7 +10,8 @@ import {
   Stethoscope,
   ChevronUp,
   Star,
-  MessageCircle
+  MessageCircle,
+  Mail
 } from 'lucide-react';
 
 const Footer = () => {
@@ -235,6 +236,16 @@ const Footer = () => {
                   0661171954
                 </a>
               </div>
+
+              <div className="bg-white/20 backdrop-blur-md rounded-2xl p-4 text-center sm:col-span-2">
+                <div className="w-12 h-12 bg-purple-500 rounded-xl flex items-center justify-center mx-auto mb-3">
+                  <Mail className="w-6 h-6 text-white" />
+                </div>
+                <h4 className="font-semibold text-white mb-1">Email</h4>
+                <a href="mailto:s.guessous.vet@gmail.com" className="text-blue-100 hover:text-white transition-colors">
+                  s.guessous.vet@gmail.com
+                </a>
+              </div>
             </div>
 
             {/* CTA Buttons */}
@@ -363,6 +374,13 @@ const Footer = () => {
                 className="bg-green-500 hover:bg-green-600 text-white p-3 rounded-full transition-all duration-300 hover:scale-110"
               >
                 <MessageCircle className="w-5 h-5" />
+              </a>
+
+              <a 
+                href="mailto:s.guessous.vet@gmail.com"
+                className="bg-purple-500 hover:bg-purple-600 text-white p-3 rounded-full transition-all duration-300 hover:scale-110"
+              >
+                <Mail className="w-5 h-5" />
               </a>
 
               <button
