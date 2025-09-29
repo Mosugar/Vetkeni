@@ -16,12 +16,12 @@ export default function Home() {
       <Header />
       <Hero />
       <Services />
-      {/* <About />
+      <About />
       <InstagramShowcase />
       <Testimonials />
       <Contact />
       <Footer />
-      <WhatsAppSticky /> */}
+      <WhatsAppSticky />
     </main>
   );
 }
